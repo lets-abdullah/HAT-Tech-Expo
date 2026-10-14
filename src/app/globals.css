@@ -1,26 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --brand-blue: #00a2ff;
+    --brand-cyan: #38bdf8;
+    --brand-dark: #030712;
+    --brand-navy: #090e1a;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  color: #0f172a;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Global 85% desktop scale optimization */
+@media screen and (min-width: 1024px) {
+  body {
+    zoom: 0.85;
+  }
+}
+
+.font-tech {
+  font-family: 'Orbitron', 'Space Grotesk', sans-serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Glowing text and borders */
+.glow-blue {
+  text-shadow: 0 0 16px rgba(0, 162, 255, 0.65), 0 0 32px rgba(0, 162, 255, 0.35);
+}
+
+.glow-box-blue {
+  box-shadow: 0 0 25px -5px rgba(0, 162, 255, 0.3), 0 0 10px -2px rgba(0, 162, 255, 0.2);
+}
+
+.glow-box-cyan {
+  box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.4);
+}
+
+/* Cyber corner HUD brackets */
+.hud-corner-tl {
+  position: relative;
+}
+.hud-corner-tl::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #00a2ff;
+  border-left: 2px solid #00a2ff;
+}
+.hud-corner-br::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #00a2ff;
+  border-right: 2px solid #00a2ff;
+}
+
+/* Glassmorphism */
+.glass-cyber-dark {
+  background: rgba(8, 14, 27, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Chamfered Tech Buttons matching official design */
+.clip-tech-chamfer {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+}
+
+.btn-tech-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 0.85rem 1.85rem;
+  background-color: #0055ff;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.015em;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-tech-primary:hover {
+  background-color: #1a6dff;
+  filter: drop-shadow(0 0 16px rgba(0, 102, 255, 0.6));
+  transform: translateY(-1px);
+}
+
+.btn-tech-primary:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+.btn-tech-outline {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px;
+  background-color: rgba(255, 255, 255, 0.35);
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-tech-outline:hover {
+  background-color: #0066ff;
+  filter: drop-shadow(0 0 14px rgba(0, 102, 255, 0.5));
+  transform: translateY(-1px);
+}
+
+.btn-tech-outline:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+.btn-tech-outline-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 100%;
+  height: 100%;
+  padding: 0.8rem 1.8rem;
+  background-color: #090e1a;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  letter-spacing: 0.015em;
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+  transition: background-color 0.2s ease;
+}
+
+.btn-tech-outline:hover .btn-tech-outline-inner {
+  background-color: rgba(9, 14, 26, 0.85);
+}
+
+.glass-cyber-light {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+/* Animation utilities */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 30s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spinSlow 40s linear infinite reverse;
 }
