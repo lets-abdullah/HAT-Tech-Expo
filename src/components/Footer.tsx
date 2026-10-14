@@ -2,34 +2,31 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { Globe, Mail, Phone, MapPin, Heart } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-slate-950 text-slate-400 border-t border-slate-900 pt-12 pb-10">
-      <div className="max-w-300 mx-auto px-6 sm:px-8 lg:px-10 space-y-10">
-        {/* Top: Logo on the left side with text beside it */}
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 pb-8 border-b border-slate-900/80">
-          <div className="relative h-14 w-44 shrink-0">
-            <Image
-              src="/images/hat-logo-transparent.png"
-              alt="HAT TECH EXPO"
-              fill
-              className="object-contain mix-blend-screen object-left"
-            />
+    <footer className="w-full bg-slate-950 text-slate-400 border-t border-slate-900 pt-16 pb-12">
+      <div className="max-w-300 mx-auto px-6 sm:px-8 lg:px-10 space-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
+          {/* Col 1: Logo & Mission */}
+          <div className="space-y-4 lg:col-span-1">
+            <div className="relative h-12 w-48">
+              <Image
+                src="/images/hat-logo-transparent.png"
+                alt="HAT TECH EXPO"
+                fill
+                className="object-contain mix-blend-screen"
+              />
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Redefining Technology. Challenging Convention. Building the Future.
+              A premier regional tech conference and exhibition connecting
+              enterprises, founders, and the next generation.
+            </p>
           </div>
-          <div className="hidden md:block w-px h-12 bg-slate-800/80 shrink-0" />
-          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl">
-            Redefining Technology. Challenging Convention. Building the Future.
-            A premier regional tech conference and exhibition connecting
-            enterprises, founders, and the next generation.
-          </p>
-        </div>
 
-        {/* Lower / Bottom Section: Columns in Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 max-w-3xl pt-2">
-          {/* Col 1: Direct Contact Information */}
+          {/* Col 3: Direct Contact Information */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 font-tech">
               Contact & Inquiries
@@ -73,14 +70,14 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 2: Venue & Initiative */}
+          {/* Col 4: Venue & Initiative */}
           <div className="space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 font-tech">
               Host Initiative
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              {/* <strong className="text-white">HAT Tech Expo</strong> */}
-              {/* <br /> */}
+              <strong className="text-white">HAT Tech Expo</strong>
+              <br />
               An initiative by{" "}
               <span className="text-sky-400 font-semibold">
                 HAT Tech Media
