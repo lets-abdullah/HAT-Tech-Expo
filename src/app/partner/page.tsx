@@ -16,10 +16,16 @@ import {
   HeartHandshake,
   TrendingUp,
   ArrowRight,
+  ArrowUpRight,
+  Crown,
+  Trophy,
+  Medal,
+  Shield,
   Loader2,
   CheckCircle2,
 } from "lucide-react";
 import confetti from "canvas-confetti";
+import { motion } from "framer-motion";
 
 export default function PartnerPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,8 +94,10 @@ export default function PartnerPage() {
       name: "PLATINUM",
       sub: "Title Sponsor",
       price: "PKR 1,500,000",
-      color: "from-sky-500 to-blue-700",
-      badgeClass: "bg-gradient-to-r from-sky-500 to-blue-600 text-white",
+      desc: "Top billing across all platforms, keynote speaking slot, premium exhibition stall & 20 VIP passes.",
+      icon: Crown,
+      tag: "Top Tier",
+      badgeClass: "bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-sm shadow-sky-500/20",
       highlight: true,
     },
     {
@@ -97,8 +105,10 @@ export default function PartnerPage() {
       name: "GOLD",
       sub: "Gold Sponsor",
       price: "PKR 700,000",
-      color: "from-amber-500 to-yellow-600",
-      badgeClass: "bg-gradient-to-r from-amber-600 to-yellow-500 text-white",
+      desc: "Executive panel seat, standard exhibition stall, hiring booth at Job Fair & 6 VIP passes.",
+      icon: Trophy,
+      tag: "Popular",
+      badgeClass: "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-sm shadow-amber-500/20",
       highlight: false,
     },
     {
@@ -106,7 +116,9 @@ export default function PartnerPage() {
       name: "SILVER",
       sub: "Silver Sponsor",
       price: "PKR 250,000",
-      color: "from-slate-400 to-slate-600",
+      desc: "Basic exhibition stall, Job Fair hiring booth, regional media mention & 3 VIP passes.",
+      icon: Medal,
+      tag: "Exhibitor",
       badgeClass: "bg-slate-200 text-slate-800",
       highlight: false,
     },
@@ -115,9 +127,65 @@ export default function PartnerPage() {
       name: "SUPPORTING",
       sub: "Supporting Sponsor",
       price: "PKR 100,000",
-      color: "from-slate-600 to-slate-800",
+      desc: "Logo on all printed event collaterals, digital campaign mention & executive entry pass.",
+      icon: Shield,
+      tag: "Partner",
       badgeClass: "bg-slate-100 text-slate-700",
       highlight: false,
+    },
+  ];
+
+  const specialOpportunities = [
+    {
+      title: "Project Awards Sponsor",
+      description:
+        "Name the student project prize and present it directly to the winner during the grand finale ceremony.",
+      icon: Award,
+      tag: "Awards & Honors",
+      packageName: "Project Awards Sponsor",
+    },
+    {
+      title: "Job Fair Partner",
+      description:
+        "Premium hiring zone, dedicated interview pods, and prominent branding in the active job recruitment pavilion.",
+      icon: Briefcase,
+      tag: "Recruitment",
+      packageName: "Job Fair Partner",
+    },
+    {
+      title: "Custom Partnership",
+      description:
+        "Tell us your specific marketing or recruitment goals and our leadership will shape a bespoke package tailored for you.",
+      icon: Sliders,
+      tag: "Bespoke",
+      packageName: "Custom Partnership",
+    },
+  ];
+
+  const whySponsorReasons = [
+    {
+      title: "Executive Reach",
+      description:
+        "Executives from five prominent industries, plus high-growth enterprises from across Multan and Southern Punjab.",
+      icon: Users,
+      tag: "5+ Industries",
+      stat: "1,500+ Attendees Expected",
+    },
+    {
+      title: "Goodwill & Impact",
+      description:
+        "Support local universities, youth innovation, and regional economic empowerment by uplifting homegrown talent.",
+      icon: HeartHandshake,
+      tag: "Regional Impact",
+      stat: "Youth & University Focus",
+    },
+    {
+      title: "Talent & Dealflow",
+      description:
+        "Meet future employees, high-value enterprise clients, and strategic technology collaborators in one focused room.",
+      icon: TrendingUp,
+      tag: "B2B Deal-making",
+      stat: "On-the-spot Hiring & Deals",
     },
   ];
 
@@ -211,79 +279,97 @@ export default function PartnerPage() {
               decision-makers, top talent, and real opportunities.
             </p>
           </div>
-
-          <div className="shrink-0">
-            <a
-              href="#partner-form"
-              className="relative inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-[#0055ff] hover:bg-[#1a6dff] text-white font-bold text-sm tracking-wide transition-all duration-200 cursor-pointer shadow-lg shadow-blue-600/30 hover:shadow-blue-500/50 hover:-translate-y-0.5 active:translate-y-0"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px))",
-              }}
-            >
-              <span>Explore Packages & Inquire</span>
-              <ArrowRight className="w-4 h-4 shrink-0" />
-            </a>
-          </div>
         </div>
       </section>
 
-      {/* 01 Sponsorship Packages (Light Theme Section) */}
+      {/* 01 Sponsorship Packages (Homepage Card Design & Hover Styling) */}
       <section className="w-full bg-white text-slate-900 py-20 border-b border-slate-200">
         <div className="max-w-300 mx-auto px-6 sm:px-8 lg:px-10 space-y-12">
-          {/* Header */}
-          <div className="space-y-3">
-            <div className="flex items-center gap-3">
-              <span className="text-xs font-bold text-[#0055ff] tracking-widest uppercase">
-                01 / SPONSORSHIP PACKAGES
+          {/* Section Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex items-center gap-4">
+              <span className="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
+                01
               </span>
-              <span className="w-8 h-[2px] bg-[#0055ff]" />
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
+                  Sponsorship Packages
+                </h2>
+                <p className="text-sm text-slate-500 font-medium mt-1">
+                  Choose the level that fits your goals. Amounts are to be confirmed by HAT Tech Media.
+                </p>
+              </div>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
-              Sponsorship Packages
-            </h2>
-            <p className="text-sm sm:text-base text-slate-500">
-              Choose the level that fits your goals. Amounts are to be confirmed by HAT Tech Media.
-            </p>
           </div>
 
-          {/* 4 Tier Cards */}
+          {/* 4 Tier Cards with Homepage Styling & Hover Effects */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {packages.map((pkg) => (
-              <div
-                key={pkg.id}
-                className={`rounded-2xl p-6 border transition-all duration-300 flex flex-col justify-between ${
-                  pkg.highlight
-                    ? "border-sky-500 bg-sky-50/40 shadow-xl shadow-sky-500/10"
-                    : "border-slate-200 bg-white hover:border-slate-300 shadow-sm"
-                }`}
-              >
-                <div>
-                  <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-black tracking-widest uppercase mb-4 ${pkg.badgeClass}`}
-                  >
-                    {pkg.name}
-                  </span>
-                  <h4 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                    {pkg.sub}
-                  </h4>
-                  <div className="mt-2 text-2xl font-black text-slate-900 font-tech">
-                    {pkg.price}
-                  </div>
-                </div>
+            {packages.map((pkg, index) => {
+              const Icon = pkg.icon;
+              return (
+                <motion.div
+                  key={pkg.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                  className={`bg-white rounded-2xl p-7 border transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 ${
+                    pkg.highlight
+                      ? "border-sky-500/80 ring-1 ring-sky-500/20"
+                      : "border-slate-200"
+                  }`}
+                >
+                  {/* Subtle top hover highlight matching homepage */}
+                  <div
+                    className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-500 to-blue-600 transition-opacity duration-300 ${
+                      pkg.highlight
+                        ? "opacity-100"
+                        : "opacity-0 group-hover:opacity-100"
+                    }`}
+                  />
 
-                <div className="mt-6 pt-4 border-t border-slate-100">
-                  <a
-                    href="#partner-form"
-                    onClick={() => setValue("selectedPackage", pkg.id)}
-                    className="w-full py-2.5 rounded-xl border border-[#0055ff] text-[#0055ff] hover:bg-[#0055ff] hover:text-white text-xs font-bold tracking-wide transition-all duration-200 flex items-center justify-center gap-1.5"
-                  >
-                    <span>Select {pkg.name}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            ))}
+                  <div>
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
+                        <Icon className="w-7 h-7 stroke-2" />
+                      </div>
+                      <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                        {pkg.tag}
+                      </span>
+                    </div>
+
+                    <span
+                      className={`inline-block px-3 py-1 rounded-full text-[11px] font-black tracking-widest uppercase mb-3 ${pkg.badgeClass}`}
+                    >
+                      {pkg.name}
+                    </span>
+
+                    <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
+                      {pkg.sub}
+                    </h3>
+
+                    <div className="mt-2 text-2xl font-extrabold text-slate-900 font-tech group-hover:text-[#0055ff] transition-colors">
+                      {pkg.price}
+                    </div>
+
+                    <p className="mt-3 text-xs text-slate-600 leading-relaxed font-normal">
+                      {pkg.desc}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-5 border-t border-slate-100">
+                    <a
+                      href="#partner-form"
+                      onClick={() => setValue("selectedPackage", pkg.id)}
+                      className="w-full py-2.5 rounded-xl border border-sky-600 text-sky-600 group-hover:bg-[#0055ff] group-hover:text-white group-hover:border-[#0055ff] text-xs font-bold tracking-wide transition-all duration-300 flex items-center justify-center gap-1.5 shadow-xs group-hover:shadow-md group-hover:shadow-blue-500/20 cursor-pointer"
+                    >
+                      <span>Select {pkg.name}</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -357,114 +443,132 @@ export default function PartnerPage() {
         </div>
       </section>
 
-      {/* 03 Special Opportunities & 04 Why Sponsor */}
+      {/* 03 Special Opportunities & 04 Why Sponsor (Homepage Card Design & Hover Styling) */}
       <section className="w-full bg-slate-50 text-slate-900 py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
         <div className="max-w-300 mx-auto space-y-16">
           {/* 03 Special Opportunities */}
           <div className="space-y-8">
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-xs font-bold text-[#0055ff] tracking-widest uppercase">
-                  03 / SPECIAL OPPORTUNITIES
-                </span>
-                <span className="w-8 h-[2px] bg-[#0055ff]" />
+            <div className="flex items-center gap-4">
+              <span className="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
+                03
+              </span>
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
+                  Special Opportunities
+                </h2>
+                <p className="text-sm text-slate-500 font-medium mt-1">
+                  High-visibility activations and tailored feature placements.
+                </p>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
-                Special Opportunities
-              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900">
-                  Project Awards Sponsor
-                </h4>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                  Name the student project prize and present it directly to the
-                  winner during the grand finale ceremony.
-                </p>
-              </div>
+              {specialOpportunities.map((opp, index) => {
+                const Icon = opp.icon;
+                return (
+                  <motion.div
+                    key={opp.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                  >
+                    {/* Top hover highlight matching homepage */}
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <div className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4">
-                  <Briefcase className="w-6 h-6" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900">
-                  Job Fair Partner
-                </h4>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                  Premium hiring zone, dedicated interview pods, and prominent
-                  branding in the active job recruitment pavilion.
-                </p>
-              </div>
+                    <div>
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
+                          <Icon className="w-7 h-7 stroke-2" />
+                        </div>
+                        <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                          {opp.tag}
+                        </span>
+                      </div>
 
-              <div className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-4">
-                  <Sliders className="w-6 h-6" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900">
-                  Custom Partnership
-                </h4>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                  Tell us your specific marketing or recruitment goals and our
-                  leadership will shape a bespoke package tailored for you.
-                </p>
-              </div>
+                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#0055ff] transition-colors">
+                        {opp.title}
+                      </h3>
+
+                      <p className="mt-2.5 text-sm text-slate-600 leading-relaxed font-normal">
+                        {opp.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-sky-600">
+                      <a
+                        href="#partner-form"
+                        onClick={() => setValue("selectedPackage", opp.packageName)}
+                        className="inline-flex items-center gap-1.5 hover:text-blue-700 font-bold transition-colors cursor-pointer"
+                      >
+                        <span>Inquire For This Role</span>
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </a>
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
           {/* 04 Why Sponsor */}
           <div className="space-y-8">
-            <div className="space-y-2">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-xs font-bold text-[#0055ff] tracking-widest uppercase">
-                  04 / WHY SPONSOR
-                </span>
-                <span className="w-8 h-[2px] bg-[#0055ff]" />
+            <div className="flex items-center gap-4">
+              <span className="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
+                04
+              </span>
+              <div>
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
+                  Why Sponsor
+                </h2>
+                <p className="text-sm text-slate-500 font-medium mt-1">
+                  Tangible returns on brand awareness, talent acquisition, and deal generation.
+                </p>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
-                Why Sponsor
-              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900">Reach</h4>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                  Executives from five prominent industries, plus high-growth
-                  enterprises from across Multan and Southern Punjab.
-                </p>
-              </div>
+              {whySponsorReasons.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                  >
+                    {/* Top hover highlight matching homepage */}
+                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-              <div className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                  <HeartHandshake className="w-6 h-6" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900">Goodwill</h4>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                  Support local universities, youth innovation, and regional
-                  economic empowerment by uplifting homegrown talent.
-                </p>
-              </div>
+                    <div>
+                      <div className="flex items-center justify-between mb-5">
+                        <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
+                          <Icon className="w-7 h-7 stroke-2" />
+                        </div>
+                        <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
+                          {item.tag}
+                        </span>
+                      </div>
 
-              <div className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm">
-                <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
-                  <TrendingUp className="w-6 h-6" />
-                </div>
-                <h4 className="text-lg font-bold text-slate-900">
-                  Talent & Partners
-                </h4>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-                  Meet future employees, high-value enterprise clients, and
-                  strategic technology collaborators in one focused room.
-                </p>
-              </div>
+                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#0055ff] transition-colors">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2.5 text-sm text-slate-600 leading-relaxed font-normal">
+                        {item.description}
+                      </p>
+                    </div>
+
+                    <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-sky-600">
+                      <span>{item.stat}</span>
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
 
             <p className="text-xs text-slate-500 italic">
