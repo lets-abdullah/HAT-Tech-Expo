@@ -64,7 +64,7 @@ export default function DatesVenueTimer() {
                 DATES
               </span>
               <p className="text-base sm:text-lg font-bold text-slate-900">
-                August 8–9, 2026 · 9:30 AM
+                August 8–9, 2026
               </p>
             </div>
           </div>
@@ -79,11 +79,10 @@ export default function DatesVenueTimer() {
                 VENUE
               </span>
               <p className="text-base sm:text-lg font-bold text-slate-900">
-                San Mateo County Event Center
+                Rajasthan Marquee | Multan
               </p>
               <p className="text-xs sm:text-sm text-slate-500 font-medium">
-                1346 Saratoga Dr, San Mateo, CA{" "}
-                <span className="text-sky-600 font-semibold">(Multan Regional Edition)</span>
+                <span className="text-sky-600 font-semibold">(Vehari Rd, New Mumtazabad Colony, Multan)</span>
               </p>
             </div>
           </div>
