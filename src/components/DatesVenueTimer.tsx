@@ -64,7 +64,7 @@ export default function DatesVenueTimer() {
                 DATES
               </span>
               <p className="text-base sm:text-lg font-bold text-slate-900">
-                August 8–9, 2026 · 9:30 AM – 5:00 PM
+                August 8–9, 2026 · 9:30 AM
               </p>
             </div>
           </div>

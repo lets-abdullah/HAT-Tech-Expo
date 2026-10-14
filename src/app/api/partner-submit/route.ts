@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     // 1. Save to Supabase if configured
     if (isSupabaseConfigured) {
       try {
-        const { data, error } = await supabase
+        const { error } = await supabase
           .from("partner_inquiries")
           .insert([
             {
@@ -25,13 +25,12 @@ export async function POST(request: Request) {
               goals: validatedData.goals || "",
               created_at: new Date().toISOString(),
             },
-          ])
-          .select("id");
+          ]);
 
         if (error) {
           console.warn("Supabase insert warning:", error.message);
-        } else if (data && data[0]?.id) {
-          savedRecordId = data[0].id;
+        } else {
+          console.log("Supabase insert SUCCESS for partner:", validatedData.companyName);
         }
       } catch (dbErr) {
         console.warn("Supabase connection error:", dbErr);

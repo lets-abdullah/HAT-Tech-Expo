@@ -12,7 +12,7 @@ export async function POST(request: Request) {
 
     if (isSupabaseConfigured) {
       try {
-        const { data, error } = await supabase
+        const { error } = await supabase
           .from("contact_messages")
           .insert([
             {
@@ -23,13 +23,12 @@ export async function POST(request: Request) {
               message: validatedData.message,
               created_at: new Date().toISOString(),
             },
-          ])
-          .select("id");
+          ]);
 
         if (error) {
           console.warn("Supabase contact warning:", error.message);
-        } else if (data && data[0]?.id) {
-          savedRecordId = data[0].id;
+        } else {
+          console.log("Supabase insert SUCCESS for contact message from:", validatedData.name);
         }
       } catch (err) {
         console.warn("Supabase contact err:", err);

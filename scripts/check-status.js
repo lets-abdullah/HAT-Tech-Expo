@@ -52,7 +52,40 @@ async function check() {
     console.log('   [contact_messages]: CONNECTED & READY! (Rows:', cData.length, ')');
   }
 
-  console.log('\n3. Email (Resend) Config:');
+  console.log('\n3. Testing Write / Insert Permissions:');
+  const testRecord = {
+    company_name: 'HAT Connection Check Corp',
+    contact_person: 'System Check',
+    email: 'test@hattechmedia.com',
+    phone: '03001234567',
+    selected_package: 'Platinum Sponsor',
+    goals: 'Testing live write permission'
+  };
+
+  // Test 1: Insert without .select()
+  const { error: pureInsertErr } = await supabase
+    .from('partner_inquiries')
+    .insert([testRecord]);
+
+  if (pureInsertErr) {
+    console.log('   Pure Insert (without .select): FAILED ->', pureInsertErr.message);
+  } else {
+    console.log('   Pure Insert (without .select): SUCCESS! Row successfully saved to database!');
+  }
+
+  // Test 2: Insert with .select('id')
+  const { data: insertData, error: insertErr } = await supabase
+    .from('partner_inquiries')
+    .insert([testRecord])
+    .select('id');
+
+  if (insertErr) {
+    console.log('   Insert with .select(): FAILED ->', insertErr.message);
+  } else {
+    console.log('   Insert with .select(): SUCCESS! Record ID:', insertData[0].id);
+  }
+
+  console.log('\n4. Email (Resend) Config:');
   console.log('   RESEND_API_KEY:', env.RESEND_API_KEY ? 'Configured' : 'NOT SET (Mock mode)');
 }
 
