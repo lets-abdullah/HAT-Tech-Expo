@@ -45,10 +45,11 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-semibold tracking-wide transition-all duration-200 relative py-2 ${isActive
+                  className={`text-sm font-semibold tracking-wide transition-all duration-200 relative py-2 ${
+                    isActive
                       ? "text-sky-400 font-bold"
                       : "text-slate-300 hover:text-white"
-                    }`}
+                  }`}
                 >
                   {link.name}
                   {isActive && (
@@ -100,10 +101,11 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${isActive
+                className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
+                  isActive
                     ? "bg-sky-950/60 text-sky-400 font-semibold border-l-4 border-sky-400"
                     : "text-slate-300 hover:bg-slate-900 hover:text-white"
-                  }`}
+                }`}
               >
                 {link.name}
               </Link>
