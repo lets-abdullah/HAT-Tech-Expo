@@ -8,9 +8,9 @@ export default function Footer() {
   return (
     <footer className="w-full bg-slate-950 text-slate-400 border-t border-slate-900 pt-16 pb-12">
       <div className="max-w-300 mx-auto px-6 sm:px-8 lg:px-10 space-y-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16 items-start">
           {/* Col 1: Logo & Mission */}
-          <div className="space-y-4 lg:col-span-1">
+          <div className="space-y-4 max-w-sm">
             <div className="relative h-12 w-48">
               <Image
                 src="/images/hat-logo-transparent.png"
@@ -19,15 +19,15 @@ export default function Footer() {
                 className="object-contain mix-blend-screen"
               />
             </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-400 leading-relaxed max-w-xs">
               Redefining Technology. Challenging Convention. Building the Future.
               A premier regional tech conference and exhibition connecting
               enterprises, founders, and the next generation.
             </p>
           </div>
 
-          {/* Col 3: Direct Contact Information */}
-          <div className="space-y-3">
+          {/* Col 2: Direct Contact Information */}
+          <div className="space-y-3 md:justify-self-center">
             <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 font-tech">
               Contact & Inquiries
             </h4>
@@ -70,8 +70,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Col 4: Venue & Initiative */}
-          <div className="space-y-3">
+          {/* Col 3: Host Initiative */}
+          <div className="space-y-3 md:justify-self-end max-w-xs">
             <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 font-tech">
               Host Initiative
             </h4>
