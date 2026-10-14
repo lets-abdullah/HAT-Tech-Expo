@@ -80,7 +80,7 @@ export default function PartnerPage() {
           spread: 70,
           origin: { y: 0.6 },
         });
-      } catch (e) {}
+      } catch (e) { }
     } catch (err: any) {
       setServerError(err.message || "Something went wrong.");
     } finally {
@@ -92,7 +92,7 @@ export default function PartnerPage() {
     {
       id: "Platinum Sponsor",
       name: "PLATINUM",
-      sub: "Title Sponsor",
+      // sub: "Title Sponsor",
       price: "PKR 1,500,000",
       desc: "Top billing across all platforms, keynote speaking slot, premium exhibition stall & 20 VIP passes.",
       icon: Crown,
@@ -285,20 +285,18 @@ export default function PartnerPage() {
       {/* 01 Sponsorship Packages (Homepage Card Design & Hover Styling) */}
       <section className="w-full bg-white text-slate-900 py-20 border-b border-slate-200">
         <div className="max-w-300 mx-auto px-6 sm:px-8 lg:px-10 space-y-12">
-          {/* Section Header */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-12 rounded-xl bg-linear-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
-                01
-              </span>
-              <div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
-                  Sponsorship Packages
-                </h2>
-                <p className="text-sm text-slate-500 font-medium mt-1">
-                  Choose the level that fits your goals. Amounts are to be confirmed by HAT Tech Media.
-                </p>
-              </div>
+          {/* Section Header with Image 3 numbering design */}
+          <div className="flex items-start gap-4">
+            <span className="w-12 h-12 rounded-2xl bg-linear-to-b from-[#0099ff] to-[#0055ff] text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/25 shrink-0 mt-0.5">
+              01
+            </span>
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1128] tracking-tight font-tech">
+                Sponsorship Packages
+              </h2>
+              <p className="text-sm sm:text-base text-slate-500 font-normal mt-1">
+                Choose the level that fits your goals. Amounts are to be confirmed by HAT Tech Media.
+              </p>
             </div>
           </div>
 
@@ -313,19 +311,17 @@ export default function PartnerPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className={`bg-white rounded-2xl p-7 border transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 ${
-                    pkg.highlight
+                  className={`bg-white rounded-2xl p-7 border transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 ${pkg.highlight
                       ? "border-sky-500/80 ring-1 ring-sky-500/20"
                       : "border-slate-200"
-                  }`}
+                    }`}
                 >
                   {/* Subtle top hover highlight matching homepage */}
                   <div
-                    className={`absolute top-0 inset-x-0 h-1 bg-linear-to-r from-sky-500 to-blue-600 transition-opacity duration-300 ${
-                      pkg.highlight
+                    className={`absolute top-0 inset-x-0 h-1 bg-linear-to-r from-sky-500 to-blue-600 transition-opacity duration-300 ${pkg.highlight
                         ? "opacity-100"
                         : "opacity-0 group-hover:opacity-100"
-                    }`}
+                      }`}
                   />
 
                   <div>
@@ -377,19 +373,19 @@ export default function PartnerPage() {
       {/* 02 Package Comparison (Exact match to Image 1) */}
       <section className="w-full bg-white text-slate-900 py-16 border-b border-slate-200">
         <div className="max-w-300 mx-auto px-6 sm:px-8 lg:px-10 space-y-8">
-          <div>
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-xs font-bold text-[#0055ff] tracking-widest uppercase">
-                02 / PROPOSED BENEFITS
-              </span>
-              <span className="w-8 h-0.5 bg-[#0055ff]" />
+          {/* Section Header with Image 3 numbering design */}
+          <div className="flex items-start gap-4">
+            <span className="w-12 h-12 rounded-2xl bg-linear-to-b from-[#0099ff] to-[#0055ff] text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/25 shrink-0 mt-0.5">
+              02
+            </span>
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1128] tracking-tight font-tech">
+                Package comparison
+              </h2>
+              <p className="text-sm sm:text-base text-slate-500 font-normal mt-1 max-w-3xl leading-relaxed">
+                The sponsorship document outlines these proposed benefits by package; final terms remain subject to written confirmation.
+              </p>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0a1128] tracking-tight font-tech">
-              Package comparison
-            </h2>
-            <p className="text-sm sm:text-base text-slate-500 mt-3 max-w-3xl leading-relaxed">
-              The sponsorship document outlines these proposed benefits by package; final terms remain subject to written confirmation.
-            </p>
           </div>
 
           {/* Table Container */}
@@ -448,15 +444,15 @@ export default function PartnerPage() {
         <div className="max-w-300 mx-auto space-y-16">
           {/* 03 Special Opportunities */}
           <div className="space-y-8">
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-12 rounded-xl bg-linear-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
+            <div className="flex items-start gap-4">
+              <span className="w-12 h-12 rounded-2xl bg-linear-to-b from-[#0099ff] to-[#0055ff] text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/25 shrink-0 mt-0.5">
                 03
               </span>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1128] tracking-tight font-tech">
                   Special Opportunities
                 </h2>
-                <p className="text-sm text-slate-500 font-medium mt-1">
+                <p className="text-sm sm:text-base text-slate-500 font-normal mt-1">
                   High-visibility activations and tailored feature placements.
                 </p>
               </div>
@@ -514,15 +510,15 @@ export default function PartnerPage() {
 
           {/* 04 Why Sponsor */}
           <div className="space-y-8">
-            <div className="flex items-center gap-4">
-              <span className="w-12 h-12 rounded-xl bg-linear-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
+            <div className="flex items-start gap-4">
+              <span className="w-12 h-12 rounded-2xl bg-linear-to-b from-[#0099ff] to-[#0055ff] text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/25 shrink-0 mt-0.5">
                 04
               </span>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-tech">
+                <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1128] tracking-tight font-tech">
                   Why Sponsor
                 </h2>
-                <p className="text-sm text-slate-500 font-medium mt-1">
+                <p className="text-sm sm:text-base text-slate-500 font-normal mt-1">
                   Tangible returns on brand awareness, talent acquisition, and deal generation.
                 </p>
               </div>
@@ -588,21 +584,21 @@ export default function PartnerPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Column (5 cols) */}
             <div className="lg:col-span-5 space-y-8">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs font-bold text-[#0055ff] tracking-widest uppercase">
-                    05 / START A CONVERSATION
-                  </span>
-                  <span className="w-8 h-0.5 bg-[#0055ff]" />
+              {/* Section Header with Image 3 numbering design */}
+              <div className="flex items-start gap-4">
+                <span className="w-12 h-12 rounded-2xl bg-linear-to-b from-[#0099ff] to-[#0055ff] text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/25 shrink-0 mt-0.5">
+                  05
+                </span>
+                <div>
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0a1128] tracking-tight font-tech">
+                    Sponsor inquiry
+                  </h2>
+                  <p className="text-sm sm:text-base text-slate-500 font-normal mt-1 leading-relaxed max-w-md">
+                    Tell HAT Tech Media about your organization and the partnership
+                    you have in mind. Submitting an inquiry does not create a
+                    payment or commitment.
+                  </p>
                 </div>
-                <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0a1128] tracking-tight font-tech">
-                  Sponsor inquiry
-                </h2>
-                <p className="text-sm sm:text-base text-slate-500 mt-3 leading-relaxed max-w-md">
-                  Tell HAT Tech Media about your organization and the partnership
-                  you have in mind. Submitting an inquiry does not create a
-                  payment or commitment.
-                </p>
               </div>
 
               {/* Dark Navy Callout Box */}

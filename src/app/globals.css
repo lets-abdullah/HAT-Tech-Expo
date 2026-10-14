@@ -17,10 +17,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Global 90% desktop scale optimization */
+/* Global 100% desktop scale optimization */
 @media screen and (min-width: 1024px) {
   body {
-    zoom: 0.90;
+    zoom: 1;
   }
 }
 
@@ -49,6 +49,7 @@ body {
 .hud-corner-tl {
   position: relative;
 }
+
 .hud-corner-tl::before {
   content: '';
   position: absolute;
@@ -59,6 +60,7 @@ body {
   border-top: 2px solid #00a2ff;
   border-left: 2px solid #00a2ff;
 }
+
 .hud-corner-br::after {
   content: '';
   position: absolute;
@@ -163,10 +165,13 @@ body {
 
 /* Animation utilities */
 @keyframes pulseGlow {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.6;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.04);
@@ -181,6 +186,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
