@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import {
   Laptop,
@@ -9,11 +9,6 @@ import {
   Building2,
   Globe,
   Users,
-  Play,
-  Pause,
-  ChevronRight,
-  ChevronLeft,
-  RotateCw,
 } from "lucide-react";
 
 interface NodeData {
@@ -23,59 +18,111 @@ interface NodeData {
   icon: React.ComponentType;
 }
 
-// Fixed slot specification on the 1100 x 680 layout canvas
-// Center of canvas: (550, 340)
-interface SlotDef {
+// Fixed Station Definitions precisely matching Image 1
+// Canvas: 1100 x 680, Center: (550, 340)
+interface StationDef {
   cardCenterX: number;
   cardCenterY: number;
-  angle: number; // in radians
-  anchorOffset: { x: number; y: number };
+  hubX: number;
+  hubY: number;
+  anchorX: number;
+  anchorY: number;
 }
 
-const SLOTS: SlotDef[] = [
-  // Slot 0: Top
+const STATIONS: StationDef[] = [
+  // Station 0: Top (IT & Tech Industry)
   {
     cardCenterX: 550,
     cardCenterY: 74,
-    angle: -Math.PI / 2, // -90 deg
-    anchorOffset: { x: 0, y: 56 }, // bottom edge
+    hubX: 550,
+    hubY: 242,
+    anchorX: 550,
+    anchorY: 130,
   },
-  // Slot 1: Top-Right
+  // Station 1: Top-Right (Real Estate)
   {
     cardCenterX: 905,
     cardCenterY: 216,
-    angle: -Math.PI / 6, // -30 deg
-    anchorOffset: { x: -175, y: 0 }, // left edge
+    hubX: 631,
+    hubY: 284,
+    anchorX: 730,
+    anchorY: 216,
   },
-  // Slot 2: Bottom-Right
+  // Station 2: Bottom-Right (Multinational Companies)
   {
     cardCenterX: 905,
     cardCenterY: 464,
-    angle: Math.PI / 6, // +30 deg
-    anchorOffset: { x: -175, y: 0 }, // left edge
+    hubX: 631,
+    hubY: 396,
+    anchorX: 730,
+    anchorY: 464,
   },
-  // Slot 3: Bottom
+  // Station 3: Bottom (IT & Technology Industry)
   {
     cardCenterX: 550,
     cardCenterY: 606,
-    angle: Math.PI / 2, // +90 deg
-    anchorOffset: { x: 0, y: -56 }, // top edge
+    hubX: 550,
+    hubY: 438,
+    anchorX: 550,
+    anchorY: 550,
   },
-  // Slot 4: Bottom-Left
+  // Station 4: Bottom-Left (Trading)
   {
     cardCenterX: 195,
     cardCenterY: 464,
-    angle: (5 * Math.PI) / 6, // +150 deg
-    anchorOffset: { x: 175, y: 0 }, // right edge
+    hubX: 469,
+    hubY: 396,
+    anchorX: 370,
+    anchorY: 464,
   },
-  // Slot 5: Top-Left
+  // Station 5: Top-Left (Fertilizer, Pesticides and Agri-inputs)
   {
     cardCenterX: 195,
     cardCenterY: 216,
-    angle: (7 * Math.PI) / 6, // +210 deg
-    anchorOffset: { x: 175, y: 0 }, // right edge
+    hubX: 469,
+    hubY: 284,
+    anchorX: 370,
+    anchorY: 216,
   },
 ];
+
+// Smooth continuous Catmull-Rom closed spline evaluation
+const catmull = (p0: number, p1: number, p2: number, p3: number, t: number) => {
+  const v0 = (p2 - p0) * 0.5;
+  const v1 = (p3 - p1) * 0.5;
+  const t2 = t * t;
+  const t3 = t * t2;
+  return (
+    (2 * p1 - 2 * p2 + v0 + v1) * t3 +
+    (-3 * p1 + 3 * p2 - 2 * v0 - v1) * t2 +
+    v0 * t +
+    p1
+  );
+};
+
+function getTrackState(pos: number) {
+  const normPos = ((pos % 6) + 6) % 6;
+  const k = Math.floor(normPos);
+  const p = normPos - k;
+
+  const prevK = (k + 5) % 6;
+  const nextK = (k + 1) % 6;
+  const next2K = (k + 2) % 6;
+
+  const s0 = STATIONS[prevK];
+  const s1 = STATIONS[k];
+  const s2 = STATIONS[nextK];
+  const s3 = STATIONS[next2K];
+
+  return {
+    cx: catmull(s0.cardCenterX, s1.cardCenterX, s2.cardCenterX, s3.cardCenterX, p),
+    cy: catmull(s0.cardCenterY, s1.cardCenterY, s2.cardCenterY, s3.cardCenterY, p),
+    hubX: catmull(s0.hubX, s1.hubX, s2.hubX, s3.hubX, p),
+    hubY: catmull(s0.hubY, s1.hubY, s2.hubY, s3.hubY, p),
+    anchorX: catmull(s0.anchorX, s1.anchorX, s2.anchorX, s3.anchorX, p),
+    anchorY: catmull(s0.anchorY, s1.anchorY, s2.anchorY, s3.anchorY, p),
+  };
+}
 
 // Custom icons to precisely mirror reference design
 function LaptopGearIcon() {
@@ -124,7 +171,7 @@ function TeamIcon() {
 }
 
 export default function WhoWillBeInRoom() {
-  // 6 Information cards
+  // 6 Information cards arranged in exact order of Image 1
   const cards: NodeData[] = [
     {
       id: 0,
@@ -164,140 +211,53 @@ export default function WhoWillBeInRoom() {
     },
   ];
 
-  // Animation State
-  // rotationStep: current integer slot shift (0 to 5)
-  // progress: 0 to 1 during transition
-  const [rotationStep, setRotationStep] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  // Continuous Clockwise Floating Position
+  const [trackPos, setTrackPos] = useState(0);
   const [hoveredCardId, setHoveredCardId] = useState<number | null>(null);
-
-  const isPausedRef = useRef(isPaused);
-  isPausedRef.current = isPaused;
 
   const hoveredRef = useRef(hoveredCardId);
   hoveredRef.current = hoveredCardId;
 
-  const currentStepRef = useRef(0);
-
-  // Smooth animation loop driving clockwise rotation
+  // Pure, uninterrupted continuous clockwise rotation loop
   useEffect(() => {
     let animFrame: number;
-    let state: "dwell" | "transition" = "dwell";
-    let stateStartTime = performance.now();
-    const DWELL_DURATION = 3200; // 3.2s dwell at each position
-    const TRANSITION_DURATION = 1400; // 1.4s smooth arc glide to next position
+    let lastTime = performance.now();
+    // 36 seconds for a full 360-degree rotation (6 stations)
+    const SPEED = 6 / 36000; // positions per millisecond
 
-    const tick = (now: number) => {
-      // If hovered or manually paused, hold current time
-      if (isPausedRef.current || hoveredRef.current !== null) {
-        stateStartTime = now - (state === "transition" ? (progress * TRANSITION_DURATION) : 0);
-        animFrame = requestAnimationFrame(tick);
-        return;
+    const loop = (now: number) => {
+      const delta = now - lastTime;
+      lastTime = now;
+
+      // When hovering over any card, pause rotation smoothly so user can read
+      if (hoveredRef.current === null) {
+        setTrackPos((prev) => (prev + delta * SPEED) % 6);
       }
 
-      const elapsed = now - stateStartTime;
-
-      if (state === "dwell") {
-        setProgress(0);
-        if (elapsed >= DWELL_DURATION) {
-          state = "transition";
-          stateStartTime = now;
-        }
-      } else if (state === "transition") {
-        const rawP = Math.min(1, elapsed / TRANSITION_DURATION);
-        // High-precision cubic-bezier easing for smooth start & finish
-        const easedP =
-          rawP < 0.5
-            ? 4 * rawP * rawP * rawP
-            : 1 - Math.pow(-2 * rawP + 2, 3) / 2;
-
-        setProgress(easedP);
-
-        if (rawP >= 1) {
-          const nextStep = (currentStepRef.current + 1) % 6;
-          currentStepRef.current = nextStep;
-          setRotationStep(nextStep);
-          setProgress(0);
-          state = "dwell";
-          stateStartTime = now;
-        }
-      }
-
-      animFrame = requestAnimationFrame(tick);
+      animFrame = requestAnimationFrame(loop);
     };
 
-    animFrame = requestAnimationFrame(tick);
+    animFrame = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animFrame);
   }, []);
 
-  // Manual next/prev navigation
-  const handleNext = useCallback(() => {
-    const nextStep = (currentStepRef.current + 1) % 6;
-    currentStepRef.current = nextStep;
-    setRotationStep(nextStep);
-    setProgress(0);
-  }, []);
-
-  const handlePrev = useCallback(() => {
-    const prevStep = (currentStepRef.current + 5) % 6;
-    currentStepRef.current = prevStep;
-    setRotationStep(prevStep);
-    setProgress(0);
-  }, []);
-
-  // Calculate position & connector coordinates for each card at current rotation
+  // Compute live positions and connector line coordinates for all 6 cards
   const renderedItems = cards.map((card, i) => {
-    // Current slot index that card `i` is currently in or transitioning from
-    const fromSlotIdx = (i + rotationStep) % 6;
-    const toSlotIdx = (fromSlotIdx + 1) % 6;
+    const cardTrackPos = (i + trackPos) % 6;
+    const state = getTrackState(cardTrackPos);
 
-    const fromSlot = SLOTS[fromSlotIdx];
-    const toSlot = SLOTS[toSlotIdx];
-
-    // Angular arc interpolation in clockwise direction
-    let a0 = fromSlot.angle;
-    let a1 = toSlot.angle;
-    if (a1 <= a0) a1 += 2 * Math.PI; // ensure strictly clockwise progression
-
-    const currentAngle = a0 + progress * (a1 - a0);
-
-    // Radial distance interpolation
-    const r0 = Math.hypot(fromSlot.cardCenterX - 550, fromSlot.cardCenterY - 340);
-    const r1 = Math.hypot(toSlot.cardCenterX - 550, toSlot.cardCenterY - 340);
-    const currentR = r0 + progress * (r1 - r0);
-
-    // Card center on elliptical arc
-    const cardCenterX = 550 + currentR * Math.cos(currentAngle);
-    const cardCenterY = 340 + currentR * Math.sin(currentAngle);
-
-    const left = cardCenterX - 175; // Card width is 350
-    const top = cardCenterY - 56; // Card height is 112
-
-    // Hub rim point pointing directly towards card
-    const hubX = 550 + 98 * Math.cos(currentAngle);
-    const hubY = 340 + 98 * Math.sin(currentAngle);
-
-    // Anchor point on the inner boundary of the card
-    const anchorX =
-      cardCenterX +
-      (1 - progress) * fromSlot.anchorOffset.x +
-      progress * toSlot.anchorOffset.x;
-    const anchorY =
-      cardCenterY +
-      (1 - progress) * fromSlot.anchorOffset.y +
-      progress * toSlot.anchorOffset.y;
-
+    const left = state.cx - 175; // Card width 350px
+    const top = state.cy - 56; // Card height 112px
     const isHovered = hoveredCardId === card.id;
 
     return {
       card,
       left,
       top,
-      hubX,
-      hubY,
-      anchorX,
-      anchorY,
+      hubX: state.hubX,
+      hubY: state.hubY,
+      anchorX: state.anchorX,
+      anchorY: state.anchorY,
       isHovered,
     };
   });
@@ -324,11 +284,11 @@ export default function WhoWillBeInRoom() {
           </p>
         </div>
 
-        {/* Desktop Radial Continuous Infographic Loop View */}
+        {/* Desktop Radial Continuous Clockwise Infographic Loop View */}
         <div className="hidden lg:flex flex-col items-center">
-          {/* Main 1100 x 680 Orbital Stage */}
+          {/* Main 1100 x 680 Orbital Stage (Exact Proportions of Image 1) */}
           <div className="relative w-275 h-170 shrink-0 scale-[0.88] xl:scale-100 origin-center select-none">
-            {/* SVG Layer: Tech Orbit Circles & Dynamically Connected Glowing Lines */}
+            {/* SVG Layer: Tech Orbit Circles & Continuously Connected Neon Lines */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none z-10"
               viewBox="0 0 1100 680"
@@ -342,10 +302,6 @@ export default function WhoWillBeInRoom() {
                     <feMergeNode in="SourceGraphic" />
                   </feMerge>
                 </filter>
-                <linearGradient id="cyberLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#00d2ff" />
-                  <stop offset="100%" stopColor="#0077ff" />
-                </linearGradient>
               </defs>
 
               {/* Faint Background Orbit Grid Lines */}
@@ -398,7 +354,7 @@ export default function WhoWillBeInRoom() {
                 strokeWidth="2.5"
               />
 
-              {/* 6 Seamless Clockwise Rotating Glowing Neon Connector Lines */}
+              {/* 6 Seamless Continuous Clockwise Rotating Glowing Neon Connector Lines */}
               {renderedItems.map(({ card, hubX, hubY, anchorX, anchorY, isHovered }) => (
                 <g key={`line-group-${card.id}`}>
                   {/* Outer Cyan Neon Glow Under-stroke */}
@@ -512,66 +468,6 @@ export default function WhoWillBeInRoom() {
               )
             )}
           </div>
-
-          {/* Sleek Cybernetic Infographic Controls Bar */}
-          <div className="mt-4 flex items-center gap-4 bg-white/80 backdrop-blur-md px-5 py-2.5 rounded-full border border-slate-200/80 shadow-sm text-xs font-semibold text-slate-700">
-            <div className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span
-                  className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                    isPaused ? "bg-amber-400" : "bg-sky-400"
-                  }`}
-                />
-                <span
-                  className={`relative inline-flex rounded-full h-2 w-2 ${
-                    isPaused ? "bg-amber-500" : "bg-sky-500"
-                  }`}
-                />
-              </span>
-              <span className="font-tech tracking-wider uppercase text-[11px] text-slate-500">
-                {isPaused || hoveredCardId !== null ? "Paused (Hover)" : "Clockwise Orbit Loop"}
-              </span>
-            </div>
-
-            <div className="h-3.5 w-px bg-slate-200" />
-
-            {/* Play / Pause Toggle Button */}
-            <button
-              onClick={() => setIsPaused((prev) => !prev)}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 hover:bg-sky-50 hover:text-sky-600 transition-colors cursor-pointer"
-              title={isPaused ? "Resume auto-rotation" : "Pause auto-rotation"}
-            >
-              {isPaused ? (
-                <>
-                  <Play className="w-3 h-3 fill-current" />
-                  <span>Resume</span>
-                </>
-              ) : (
-                <>
-                  <Pause className="w-3 h-3 fill-current" />
-                  <span>Pause</span>
-                </>
-              )}
-            </button>
-
-            {/* Step Shift Buttons */}
-            <div className="flex items-center gap-1">
-              <button
-                onClick={handlePrev}
-                className="w-7 h-7 rounded-full bg-slate-100 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-center transition-colors cursor-pointer"
-                title="Rotate counter-clockwise by 1 slot"
-              >
-                <ChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="w-7 h-7 rounded-full bg-slate-100 hover:bg-sky-50 hover:text-sky-600 flex items-center justify-center transition-colors cursor-pointer"
-                title="Rotate clockwise by 1 slot"
-              >
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Mobile / Tablet Responsive Layout */}
@@ -590,21 +486,14 @@ export default function WhoWillBeInRoom() {
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {cards.map((card, index) => {
-              const isCurrent = (index + rotationStep) % 6 === 0;
-              return (
-                <div
-                  key={card.id}
-                  onClick={() => setRotationStep(index)}
-                  className="transition-transform duration-300"
-                >
-                  <ChamferedCard
-                    card={card}
-                    isHovered={isCurrent}
-                  />
-                </div>
-              );
-            })}
+            {cards.map((card) => (
+              <div key={card.id}>
+                <ChamferedCard
+                  card={card}
+                  isHovered={false}
+                />
+              </div>
+            ))}
           </div>
         </div>
 
