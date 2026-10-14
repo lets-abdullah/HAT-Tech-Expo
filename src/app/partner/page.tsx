@@ -23,9 +23,25 @@ import {
   Shield,
   Loader2,
   CheckCircle2,
+  type LucideIcon,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { motion } from "framer-motion";
+
+interface PackageTier {
+  id: string;
+  name: string;
+  sub: string;
+  price: string;
+  desc: string;
+  icon: LucideIcon;
+  tag: string;
+  badgeClass: string;
+  highlight: boolean;
+}
+
+const formInputClassName =
+  "w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all";
 
 export default function PartnerPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -88,7 +104,7 @@ export default function PartnerPage() {
     }
   };
 
-  const packages = [
+  const packages: PackageTier[] = [
     {
       id: "Platinum Sponsor",
       name: "PLATINUM",
@@ -678,7 +694,7 @@ export default function PartnerPage() {
                             {...register("companyName")}
                             type="text"
                             placeholder="Organization name"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                           {errors.companyName && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -695,7 +711,7 @@ export default function PartnerPage() {
                             {...register("industry")}
                             type="text"
                             placeholder="Your industry"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                           {errors.industry && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -714,7 +730,7 @@ export default function PartnerPage() {
                             {...register("city")}
                             type="text"
                             placeholder="City"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                           {errors.city && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -731,7 +747,7 @@ export default function PartnerPage() {
                             {...register("address")}
                             type="text"
                             placeholder="Optional"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                         </div>
                       </div>
@@ -745,7 +761,7 @@ export default function PartnerPage() {
                             {...register("companyPhone")}
                             type="text"
                             placeholder="Optional"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                         </div>
 
@@ -757,7 +773,7 @@ export default function PartnerPage() {
                             {...register("website")}
                             type="text"
                             placeholder="https://"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                         </div>
                       </div>
@@ -778,7 +794,7 @@ export default function PartnerPage() {
                             {...register("contactPerson")}
                             type="text"
                             placeholder="Contact person"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                           {errors.contactPerson && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -795,7 +811,7 @@ export default function PartnerPage() {
                             {...register("designation")}
                             type="text"
                             placeholder="Optional"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                         </div>
                       </div>
@@ -809,7 +825,7 @@ export default function PartnerPage() {
                             {...register("phone")}
                             type="text"
                             placeholder="Contact mobile"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                           {errors.phone && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -826,7 +842,7 @@ export default function PartnerPage() {
                             {...register("email")}
                             type="email"
                             placeholder="name@company.com"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                            className={formInputClassName}
                           />
                           {errors.email && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -849,7 +865,7 @@ export default function PartnerPage() {
                         </label>
                         <select
                           {...register("selectedPackage")}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
+                          className={formInputClassName}
                         >
                           <option value="">Choose your interest</option>
                           <option value="Platinum Sponsor">Platinum Sponsor</option>
@@ -875,7 +891,7 @@ export default function PartnerPage() {
                           {...register("goals")}
                           rows={4}
                           placeholder="Share your goals or questions."
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                          className={`${formInputClassName} resize-none`}
                         />
                       </div>
                     </div>
