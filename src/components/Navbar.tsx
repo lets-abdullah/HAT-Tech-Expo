@@ -22,17 +22,17 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#030712] border-b border-slate-900">
-      <div className="max-w-300 mx-auto px-4 sm:px-8 lg:px-10">
+      <div className="max-w-300 mx-auto px-6 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between h-20">
-          {/* Seamless Integrated Logo - Anchored flush to the left on mobile */}
+          {/* Seamless Integrated Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative h-11 w-36 sm:h-14 sm:w-56 transition-transform duration-300 group-hover:scale-105">
+            <div className="relative h-12 w-48 sm:h-14 sm:w-56 transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/images/hat-logo-transparent.png"
                 alt="HAT TECH EXPO"
                 fill
                 priority
-                className="object-contain object-left mix-blend-screen"
+                className="object-contain mix-blend-screen"
               />
             </div>
           </Link>
@@ -45,11 +45,10 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`text-sm font-semibold tracking-wide transition-all duration-200 relative py-2 ${
-                    isActive
+                  className={`text-sm font-semibold tracking-wide transition-all duration-200 relative py-2 ${isActive
                       ? "text-sky-400 font-bold"
                       : "text-slate-300 hover:text-white"
-                  }`}
+                    }`}
                 >
                   {link.name}
                   {isActive && (
@@ -101,11 +100,10 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${
-                  isActive
+                className={`block px-4 py-2.5 rounded-lg text-base font-medium transition-colors ${isActive
                     ? "bg-sky-950/60 text-sky-400 font-semibold border-l-4 border-sky-400"
                     : "text-slate-300 hover:bg-slate-900 hover:text-white"
-                }`}
+                  }`}
               >
                 {link.name}
               </Link>

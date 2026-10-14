@@ -79,8 +79,8 @@ export default function Footer() {
               Host Initiative
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              <strong className="text-white">HAT Tech Expo</strong>
-              <br />
+              {/* <strong className="text-white">HAT Tech Expo</strong> */}
+              {/* <br /> */}
               An initiative by{" "}
               <span className="text-sky-400 font-semibold">
                 HAT Tech Media
