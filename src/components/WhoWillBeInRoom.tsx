@@ -305,7 +305,7 @@ export default function WhoWillBeInRoom() {
   return (
     <section className="w-full bg-[#f8fafc] text-slate-900 py-20 px-4 sm:px-6 lg:px-8 border-b border-slate-200 relative overflow-hidden">
       {/* Background radial ambient cyber glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] bg-sky-100/50 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-180 h-180 bg-sky-100/50 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-300 mx-auto px-4 sm:px-8 lg:px-10 space-y-10 relative z-10">
         {/* Section Header */}
@@ -327,7 +327,7 @@ export default function WhoWillBeInRoom() {
         {/* Desktop Radial Continuous Infographic Loop View */}
         <div className="hidden lg:flex flex-col items-center">
           {/* Main 1100 x 680 Orbital Stage */}
-          <div className="relative w-[1100px] h-[680px] shrink-0 scale-[0.88] xl:scale-100 origin-center select-none">
+          <div className="relative w-275 h-170 shrink-0 scale-[0.88] xl:scale-100 origin-center select-none">
             {/* SVG Layer: Tech Orbit Circles & Dynamically Connected Glowing Lines */}
             <svg
               className="absolute inset-0 w-full h-full pointer-events-none z-10"
@@ -441,7 +441,7 @@ export default function WhoWillBeInRoom() {
             </svg>
 
             {/* Central Dark Circular Emblem: COMPLETELY FIXED & STATIC AT CENTER */}
-            <div className="absolute top-[340px] left-[550px] -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-auto">
+            <div className="absolute top-85 left-137.5 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-auto">
               {/* Ambient Blue Pulse Glow Behind Logo */}
               <div className="absolute -inset-4 rounded-full bg-cyan-400/20 blur-xl pointer-events-none" />
 
@@ -449,7 +449,7 @@ export default function WhoWillBeInRoom() {
               <div className="absolute -inset-2.5 rounded-full border border-sky-400/50 pointer-events-none" />
 
               {/* Central Fixed Circular Badge with dark core and HAT TECH EXPO Logo */}
-              <div className="relative w-[190px] h-[190px] rounded-full bg-[#050c1e] border-4 border-[#0090ff] shadow-[0_0_35px_rgba(0,144,255,0.45)] flex flex-col items-center justify-center text-center p-4 overflow-hidden group">
+              <div className="relative w-47.5 h-47.5 rounded-full bg-[#050c1e] border-4 border-[#0090ff] shadow-[0_0_35px_rgba(0,144,255,0.45)] flex flex-col items-center justify-center text-center p-4 overflow-hidden group">
                 {/* Subtle Inner Rings */}
                 <div className="absolute inset-1.5 rounded-full border border-sky-400/40 pointer-events-none" />
                 <div className="absolute inset-3 rounded-full border border-cyan-400/20 pointer-events-none" />
@@ -636,7 +636,7 @@ function ChamferedCard({
     <div className="relative w-full">
       {/* Outer Chamfered Container (Border via 2px padding & vibrant electric blue) */}
       <div
-        className={`relative p-[2px] transition-all duration-300 ${
+        className={`relative p-0.5 transition-all duration-300 ${
           isHovered
             ? "scale-[1.03] shadow-[0_8px_25px_rgba(0,144,255,0.35)]"
             : "shadow-[0_4px_14px_rgba(0,144,255,0.12)]"
@@ -651,7 +651,7 @@ function ChamferedCard({
       >
         {/* Inner White Container */}
         <div
-          className="w-full bg-white px-4 py-3 flex items-center gap-3.5 relative min-h-[112px]"
+          className="w-full bg-white px-4 py-3 flex items-center gap-3.5 relative min-h-28"
           style={{
             clipPath:
               "polygon(14.5px 0, calc(100% - 14.5px) 0, 100% 14.5px, 100% calc(100% - 14.5px), calc(100% - 14.5px) 100%, 14.5px 100%, 0 calc(100% - 14.5px), 0 14.5px)",
@@ -659,7 +659,7 @@ function ChamferedCard({
         >
           {/* Hexagon Icon Badge */}
           <div
-            className="relative shrink-0 w-16 h-18 flex items-center justify-center p-[2px] transition-transform duration-300"
+            className="relative shrink-0 w-16 h-18 flex items-center justify-center p-0.5 transition-transform duration-300"
             style={{
               clipPath:
                 "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)",
@@ -690,11 +690,11 @@ function ChamferedCard({
           </div>
 
           {/* 4 Diagonal Slanted Slashes in Bottom-Right Corner (Exact Reference Mirror) */}
-          <div className="absolute bottom-2.5 right-3.5 flex items-center gap-[3px] pointer-events-none">
-            <span className="w-1.5 h-3 bg-[#0084ff] -skew-x-[25deg] rounded-[1px] opacity-80" />
-            <span className="w-1.5 h-3 bg-[#0084ff] -skew-x-[25deg] rounded-[1px] opacity-80" />
-            <span className="w-1.5 h-3 bg-[#0084ff] -skew-x-[25deg] rounded-[1px] opacity-80" />
-            <span className="w-1.5 h-3 bg-[#0084ff] -skew-x-[25deg] rounded-[1px] opacity-80" />
+          <div className="absolute bottom-2.5 right-3.5 flex items-center gap-0.75 pointer-events-none">
+            <span className="w-1.5 h-3 bg-[#0084ff] skew-x-[-25deg] rounded-[1px] opacity-80" />
+            <span className="w-1.5 h-3 bg-[#0084ff] skew-x-[-25deg] rounded-[1px] opacity-80" />
+            <span className="w-1.5 h-3 bg-[#0084ff] skew-x-[-25deg] rounded-[1px] opacity-80" />
+            <span className="w-1.5 h-3 bg-[#0084ff] skew-x-[-25deg] rounded-[1px] opacity-80" />
           </div>
         </div>
       </div>
