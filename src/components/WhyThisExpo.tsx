@@ -87,26 +87,7 @@ export default function WhyThisExpo() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                {/* Subtle Bottom Shade for Text Readability */}
-                {/* <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/20 to-transparent" /> */}
               </div>
-
-              {/* Bottom Card Overlay */}
-              {/* <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 bg-slate-950/80 backdrop-blur-md border-t border-slate-800 text-white">
-                <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <span className="text-[10px] font-mono tracking-widest text-sky-400 uppercase font-semibold">
-                      REGIONAL HERITAGE • DIGITAL FUTURE
-                    </span>
-                    <h4 className="text-base sm:text-lg font-bold text-white tracking-tight">
-                      Multan Tech Transformation
-                    </h4>
-                  </div>
-                  <span className="shrink-0 px-3 py-1 rounded-full bg-sky-500/15 border border-sky-400/40 text-sky-300 text-xs font-bold">
-                    HAT Media
-                  </span>
-                </div>
-              </div> */}
             </div>
           </motion.div>
         </div>

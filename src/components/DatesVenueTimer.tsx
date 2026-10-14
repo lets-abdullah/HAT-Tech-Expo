@@ -60,7 +60,7 @@ export default function DatesVenueTimer() {
               <Calendar className="w-6 h-6 stroke-2" />
             </div>
             <div>
-              <span className="block text-xs uppercase tracking-wider font-semibold text-slate-400">
+              <span className="block text-xs uppercase tracking-wider font-semibold text-slate-400 font-tech">
                 DATES
               </span>
               <p className="text-base sm:text-lg font-bold text-slate-900">
@@ -75,7 +75,7 @@ export default function DatesVenueTimer() {
               <MapPin className="w-6 h-6 stroke-2" />
             </div>
             <div>
-              <span className="block text-xs uppercase tracking-wider font-semibold text-slate-400">
+              <span className="block text-xs uppercase tracking-wider font-semibold text-slate-400 font-tech">
                 VENUE
               </span>
               <p className="text-base sm:text-lg font-bold text-slate-900">
@@ -99,11 +99,11 @@ export default function DatesVenueTimer() {
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-blue-600" />
               <span className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-blue-600" />
               <span className="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-blue-600" />
-              <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-mono tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-tech tracking-tight">
                 {timeLeft.days}
               </span>
             </div>
-            <span className="mt-2 text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase">
+            <span className="mt-2 text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase font-tech">
               DAYS
             </span>
           </div>
@@ -115,11 +115,11 @@ export default function DatesVenueTimer() {
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-blue-600" />
               <span className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-blue-600" />
               <span className="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-blue-600" />
-              <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-mono tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-tech tracking-tight">
                 {timeLeft.hours}
               </span>
             </div>
-            <span className="mt-2 text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase">
+            <span className="mt-2 text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase font-tech">
               HOURS
             </span>
           </div>
@@ -131,11 +131,11 @@ export default function DatesVenueTimer() {
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-blue-600" />
               <span className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-blue-600" />
               <span className="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-blue-600" />
-              <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-mono tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-tech tracking-tight">
                 {timeLeft.minutes}
               </span>
             </div>
-            <span className="mt-2 text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase">
+            <span className="mt-2 text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase font-tech">
               MINS
             </span>
           </div>
@@ -147,11 +147,11 @@ export default function DatesVenueTimer() {
               <span className="absolute -top-1 -right-1 w-2.5 h-2.5 border-t-2 border-r-2 border-blue-600" />
               <span className="absolute -bottom-1 -left-1 w-2.5 h-2.5 border-b-2 border-l-2 border-blue-600" />
               <span className="absolute -bottom-1 -right-1 w-2.5 h-2.5 border-b-2 border-r-2 border-blue-600" />
-              <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-mono tracking-tight">
+              <span className="text-2xl sm:text-3xl font-extrabold text-blue-600 font-tech tracking-tight">
                 {timeLeft.seconds}
               </span>
             </div>
-            <span className="mt-2 text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase">
+            <span className="mt-2 text-[10px] sm:text-xs font-bold tracking-widest text-slate-400 uppercase font-tech">
               SECS
             </span>
           </div>

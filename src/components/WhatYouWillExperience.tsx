@@ -98,7 +98,7 @@ export default function WhatYouWillExperience() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-sky-600 transition-colors">
+                  <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-sky-600 transition-colors font-tech tracking-wide">
                     {exp.title}
                   </h3>
 

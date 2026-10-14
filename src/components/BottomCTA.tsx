@@ -33,7 +33,7 @@ export default function BottomCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-3xl sm:text-5xl font-extrabold tracking-tight max-w-3xl leading-tight"
+          className="text-3xl sm:text-5xl font-extrabold tracking-tight max-w-3xl leading-tight font-tech"
         >
           Be part of the room where{" "}
           <span className="text-transparent bg-clip-text bg-linear-to-r from-sky-400 via-cyan-300 to-blue-500 drop-shadow-[0_0_20px_rgba(56,189,248,0.4)]">

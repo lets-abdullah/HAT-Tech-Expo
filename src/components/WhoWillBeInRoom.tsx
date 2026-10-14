@@ -288,7 +288,7 @@ function NodeCard({
           <Icon className="w-6 h-6 stroke-2" />
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="text-sm font-bold text-slate-900 leading-snug">
+          <h4 className="text-sm font-extrabold text-slate-900 leading-snug font-tech tracking-wide">
             {node.title}
           </h4>
           <p className="text-xs text-slate-500 mt-1 line-clamp-2">

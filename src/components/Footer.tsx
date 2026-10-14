@@ -29,7 +29,7 @@ export default function Footer() {
 
           {/* Col 2: Quick Navigation */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 font-tech">
               Navigation
             </h4>
             <ul className="space-y-2 text-xs">
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Col 3: Direct Contact Information */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 font-tech">
               Contact & Inquiries
             </h4>
             <ul className="space-y-2.5 text-xs">
@@ -111,7 +111,7 @@ export default function Footer() {
 
           {/* Col 4: Venue & Initiative */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-slate-200 font-tech">
               Host Initiative
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">

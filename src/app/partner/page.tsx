@@ -351,7 +351,7 @@ export default function PartnerPage() {
                     </div>
 
                     <span
-                      className={`inline-block px-3 py-1 rounded-full text-[11px] font-black tracking-widest uppercase mb-3 ${pkg.badgeClass}`}
+                      className={`inline-block px-3 py-1 rounded-full text-[11px] font-black tracking-widest uppercase mb-3 font-tech ${pkg.badgeClass}`}
                     >
                       {pkg.name}
                     </span>
@@ -495,7 +495,7 @@ export default function PartnerPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#0055ff] transition-colors">
+                      <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#0055ff] transition-colors font-tech tracking-wide">
                         {opp.title}
                       </h3>
 
@@ -561,7 +561,7 @@ export default function PartnerPage() {
                         </span>
                       </div>
 
-                      <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#0055ff] transition-colors">
+                      <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-[#0055ff] transition-colors font-tech tracking-wide">
                         {item.title}
                       </h3>
 

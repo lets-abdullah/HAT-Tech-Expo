@@ -78,10 +78,10 @@ export default function QuickStatsPillars() {
                     <Icon className="w-6 h-6 stroke-2" />
                   </div>
                   <div>
-                    <span className="block text-[11px] font-bold tracking-widest text-slate-400 uppercase">
+                    <span className="block text-[11px] font-bold tracking-widest text-slate-400 uppercase font-tech">
                       {item.label}
                     </span>
-                    <p className="text-sm sm:text-base font-bold text-slate-900 mt-0.5">
+                    <p className="text-sm sm:text-base font-extrabold text-slate-900 mt-0.5 font-tech tracking-tight">
                       {item.value}
                     </p>
                   </div>
