@@ -22,17 +22,17 @@ export default function Navbar({ onOpenContact }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#030712] border-b border-slate-900">
-      <div className="max-w-300 mx-auto px-6 sm:px-8 lg:px-10">
+      <div className="max-w-300 mx-auto px-4 sm:px-8 lg:px-10">
         <div className="flex items-center justify-between h-20">
-          {/* Seamless Integrated Logo */}
+          {/* Seamless Integrated Logo - Anchored flush to the left on mobile */}
           <Link href="/" className="flex items-center group">
-            <div className="relative h-12 w-48 sm:h-14 sm:w-56 transition-transform duration-300 group-hover:scale-105">
+            <div className="relative h-11 w-36 sm:h-14 sm:w-56 transition-transform duration-300 group-hover:scale-105">
               <Image
                 src="/images/hat-logo-transparent.png"
                 alt="HAT TECH EXPO"
                 fill
                 priority
-                className="object-contain mix-blend-screen"
+                className="object-contain object-left mix-blend-screen"
               />
             </div>
           </Link>
