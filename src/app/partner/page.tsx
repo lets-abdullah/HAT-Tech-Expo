@@ -92,7 +92,7 @@ export default function PartnerPage() {
     {
       id: "Platinum Sponsor",
       name: "PLATINUM",
-      // sub: "Title Sponsor",
+      sub: "Title Sponsor",
       price: "PKR 1,500,000",
       desc: "Top billing across all platforms, keynote speaking slot, premium exhibition stall & 20 VIP passes.",
       icon: Crown,
@@ -312,15 +312,15 @@ export default function PartnerPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
                   className={`bg-white rounded-2xl p-7 border transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 ${pkg.highlight
-                      ? "border-sky-500/80 ring-1 ring-sky-500/20"
-                      : "border-slate-200"
+                    ? "border-sky-500/80 ring-1 ring-sky-500/20"
+                    : "border-slate-200"
                     }`}
                 >
                   {/* Subtle top hover highlight matching homepage */}
                   <div
                     className={`absolute top-0 inset-x-0 h-1 bg-linear-to-r from-sky-500 to-blue-600 transition-opacity duration-300 ${pkg.highlight
-                        ? "opacity-100"
-                        : "opacity-0 group-hover:opacity-100"
+                      ? "opacity-100"
+                      : "opacity-0 group-hover:opacity-100"
                       }`}
                   />
 

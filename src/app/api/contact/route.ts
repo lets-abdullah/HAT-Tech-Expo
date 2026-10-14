@@ -24,13 +24,12 @@ export async function POST(request: Request) {
               created_at: new Date().toISOString(),
             },
           ])
-          .select("id")
-          .single();
+          .select("id");
 
         if (error) {
           console.warn("Supabase contact warning:", error.message);
-        } else if (data?.id) {
-          savedRecordId = data.id;
+        } else if (data && data[0]?.id) {
+          savedRecordId = data[0].id;
         }
       } catch (err) {
         console.warn("Supabase contact err:", err);
