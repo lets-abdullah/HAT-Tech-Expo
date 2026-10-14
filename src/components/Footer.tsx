@@ -13,10 +13,10 @@ export default function Footer() {
           <div className="space-y-4 max-w-sm">
             <div className="relative h-12 w-48">
               <Image
-                src="/images/hat-logo-transparent.png"
+                src="/images/hat-logo-trimmed.png"
                 alt="HAT TECH EXPO"
                 fill
-                className="object-contain mix-blend-screen"
+                className="object-contain object-left mix-blend-screen"
               />
             </div>
             <p className="text-xs text-slate-400 leading-relaxed max-w-xs">
