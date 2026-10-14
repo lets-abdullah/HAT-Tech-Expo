@@ -327,7 +327,7 @@ export default function PartnerPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.08 }}
-                  className={`bg-white rounded-2xl p-7 border transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 ${pkg.highlight
+                  className={`bg-white rounded-2xl p-5 xl:p-6 border transition-all duration-300 flex flex-col justify-between group relative overflow-hidden shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 ${pkg.highlight
                     ? "border-sky-500/80 ring-1 ring-sky-500/20"
                     : "border-slate-200"
                     }`}
@@ -356,15 +356,11 @@ export default function PartnerPage() {
                       {pkg.name}
                     </span>
 
-                    <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">
-                      {pkg.sub}
-                    </h3>
-
-                    <div className="mt-2 text-2xl font-extrabold text-slate-900 font-tech group-hover:text-[#0055ff] transition-colors">
+                    <div className="text-lg sm:text-xl lg:text-[1.12rem] xl:text-[1.32rem] 2xl:text-2xl font-extrabold text-slate-900 font-tech group-hover:text-[#0055ff] transition-colors whitespace-nowrap tracking-tight">
                       {pkg.price}
                     </div>
 
-                    <p className="mt-3 text-xs text-slate-600 leading-relaxed font-normal">
+                    <p className="mt-3 text-xs text-slate-600 leading-relaxed font-normal min-h-[3.25rem]">
                       {pkg.desc}
                     </p>
                   </div>

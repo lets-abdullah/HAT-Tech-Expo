@@ -51,26 +51,16 @@ export default function HeroVideo() {
 
       {/* Main Hero Content - Anchored to Lower Left */}
       <div className="relative z-10 max-w-300 mx-auto px-6 sm:px-8 lg:px-10 w-full pb-10 sm:pb-16 pt-28 sm:pt-44 flex flex-col justify-end items-start text-left h-full min-h-[calc(100vh-5rem)]">
-        {/* Date & Location Pill Tag */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/70 border border-sky-400/30 backdrop-blur-md text-sky-300 text-[11px] sm:text-xs font-mono tracking-wider uppercase mb-3 shadow-lg"
-        >
-          <Sparkles className="w-3.5 h-3.5 text-sky-400" />
-          <span>AUG 8–9, 2026 • MULTAN REGION</span>
-        </motion.div>
 
         {/* Shortened Narrative Description */}
-        <motion.p
+        {/* <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-xs sm:text-base md:text-lg text-slate-100 max-w-xl sm:max-w-2xl font-normal leading-relaxed drop-shadow-md mb-6 sm:mb-8"
         >
-          A premier business-focused technology event bringing together executives, companies, universities, and students in the Multan region to connect, showcase, and create opportunities.
-        </motion.p>
+          A premier business-focused event bringing together executives, companies, universities, and students in the Multan region to connect and create opportunities.
+        </motion.p> */}
 
         {/* Action Buttons on Lower Left */}
         <motion.div

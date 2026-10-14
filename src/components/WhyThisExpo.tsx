@@ -88,11 +88,11 @@ export default function WhyThisExpo() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Subtle Bottom Shade for Text Readability */}
-                <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                {/* <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/20 to-transparent" /> */}
               </div>
 
               {/* Bottom Card Overlay */}
-              <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 bg-slate-950/80 backdrop-blur-md border-t border-slate-800 text-white">
+              {/* <div className="absolute bottom-0 inset-x-0 p-5 sm:p-6 bg-slate-950/80 backdrop-blur-md border-t border-slate-800 text-white">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <span className="text-[10px] font-mono tracking-widest text-sky-400 uppercase font-semibold">
@@ -106,7 +106,7 @@ export default function WhyThisExpo() {
                     HAT Media
                   </span>
                 </div>
-              </div>
+              </div> */}
             </div>
           </motion.div>
         </div>
