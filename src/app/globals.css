@@ -17,10 +17,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Global 85% desktop scale optimization */
+/* Global 90% desktop scale optimization */
 @media screen and (min-width: 1024px) {
   body {
-    zoom: 0.85;
+    zoom: 0.90;
   }
 }
 
