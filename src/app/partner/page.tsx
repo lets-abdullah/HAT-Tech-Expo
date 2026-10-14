@@ -594,8 +594,8 @@ export default function PartnerPage() {
       >
         <div className="max-w-300 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left Column (5 cols) */}
-            <div className="lg:col-span-5 space-y-8">
+            {/* Left Column (5 cols) - Sticky when scrolling the form */}
+            <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-28 self-start">
               {/* Section Header with Image 3 numbering design */}
               <div className="flex items-start gap-4">
                 <span className="w-12 h-12 rounded-2xl bg-linear-to-b from-[#0099ff] to-[#0055ff] text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/25 shrink-0 mt-0.5">
