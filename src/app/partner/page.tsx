@@ -507,7 +507,7 @@ export default function PartnerPage() {
                     <div className="pt-6 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-sky-600">
                       <a
                         href="#partner-form"
-                        onClick={() => setValue("selectedPackage", opp.packageName)}
+                        onClick={() => setValue("goals", `Inquiring for: ${opp.title}`)}
                         className="inline-flex items-center gap-1.5 hover:text-blue-700 font-bold transition-colors cursor-pointer"
                       >
                         <span>Inquire For This Role</span>
@@ -868,9 +868,6 @@ export default function PartnerPage() {
                           <option value="Gold Sponsor">Gold Sponsor</option>
                           <option value="Silver Sponsor">Silver Sponsor</option>
                           <option value="Supporting Sponsor">Supporting Sponsor</option>
-                          <option value="Job Fair Partner">Job Fair Partner</option>
-                          <option value="Project Awards Sponsor">Project Awards Sponsor</option>
-                          <option value="Custom Partnership">Custom Partnership</option>
                         </select>
                         {errors.selectedPackage && (
                           <span className="text-red-500 text-xs mt-1 block">

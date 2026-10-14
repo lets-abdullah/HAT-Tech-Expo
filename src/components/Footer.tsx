@@ -76,8 +76,6 @@ export default function Footer() {
               Host Initiative
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              <strong className="text-white">HAT Tech Expo</strong>
-              <br />
               An initiative by{" "}
               <span className="text-sky-400 font-semibold">
                 HAT Tech Media
@@ -86,7 +84,7 @@ export default function Footer() {
             </p>
             <div className="pt-2 flex items-start gap-2 text-xs text-slate-400">
               <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
-              <span>Multan Regional Technology Hub & Convention Center</span>
+              <span>Multan Regional Technology Hub</span>
             </div>
           </div>
         </div>
