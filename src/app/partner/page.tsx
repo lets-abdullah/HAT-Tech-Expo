@@ -360,7 +360,7 @@ export default function PartnerPage() {
                       {pkg.price}
                     </div>
 
-                    <p className="mt-3 text-xs text-slate-600 leading-relaxed font-normal min-h-[3.25rem]">
+                    <p className="mt-3 text-xs text-slate-600 leading-relaxed font-normal min-h-13">
                       {pkg.desc}
                     </p>
                   </div>
