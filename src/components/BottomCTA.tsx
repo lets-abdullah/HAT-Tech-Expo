@@ -72,13 +72,13 @@ export default function BottomCTA() {
 
           <Link
             href="/student-connect"
-            className="relative inline-flex items-center justify-center p-[1px] bg-white/40 hover:bg-[#0055ff] transition-all duration-200 group cursor-pointer hover:-translate-y-0.5 active:translate-y-0 w-full sm:w-auto"
+            className="relative inline-flex items-center justify-center p-px bg-white/40 hover:bg-[#0055ff] transition-all duration-200 group cursor-pointer hover:-translate-y-0.5 active:translate-y-0 w-full sm:w-auto"
             style={{
               clipPath: "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px))",
             }}
           >
             <span
-              className="inline-flex items-center justify-center gap-2.5 px-8 py-[13px] bg-[#030712] group-hover:bg-[#080e1e] text-white font-bold text-sm tracking-wide transition-colors w-full"
+              className="inline-flex items-center justify-center gap-2.5 px-8 py-3.25 bg-[#030712] group-hover:bg-[#080e1e] text-white font-bold text-sm tracking-wide transition-colors w-full"
               style={{
                 clipPath: "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px))",
               }}

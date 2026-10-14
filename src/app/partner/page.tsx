@@ -97,7 +97,7 @@ export default function PartnerPage() {
       desc: "Top billing across all platforms, keynote speaking slot, premium exhibition stall & 20 VIP passes.",
       icon: Crown,
       tag: "Top Tier",
-      badgeClass: "bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-sm shadow-sky-500/20",
+      badgeClass: "bg-linear-to-r from-sky-500 to-blue-600 text-white shadow-sm shadow-sky-500/20",
       highlight: true,
     },
     {
@@ -108,7 +108,7 @@ export default function PartnerPage() {
       desc: "Executive panel seat, standard exhibition stall, hiring booth at Job Fair & 6 VIP passes.",
       icon: Trophy,
       tag: "Popular",
-      badgeClass: "bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-sm shadow-amber-500/20",
+      badgeClass: "bg-linear-to-r from-amber-500 to-yellow-500 text-white shadow-sm shadow-amber-500/20",
       highlight: false,
     },
     {
@@ -261,7 +261,7 @@ export default function PartnerPage() {
             fill
             className="object-cover opacity-120 filter brightness-75"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/60" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/90 to-slate-950/60" />
         </div>
 
         <div className="relative z-10 max-w-300 mx-auto px-6 sm:px-8 lg:px-10 flex flex-col lg:flex-row items-center justify-between gap-10">
@@ -288,7 +288,7 @@ export default function PartnerPage() {
           {/* Section Header */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <span className="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
+              <span className="w-12 h-12 rounded-xl bg-linear-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
                 01
               </span>
               <div>
@@ -321,7 +321,7 @@ export default function PartnerPage() {
                 >
                   {/* Subtle top hover highlight matching homepage */}
                   <div
-                    className={`absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-500 to-blue-600 transition-opacity duration-300 ${
+                    className={`absolute top-0 inset-x-0 h-1 bg-linear-to-r from-sky-500 to-blue-600 transition-opacity duration-300 ${
                       pkg.highlight
                         ? "opacity-100"
                         : "opacity-0 group-hover:opacity-100"
@@ -330,7 +330,7 @@ export default function PartnerPage() {
 
                   <div>
                     <div className="flex items-center justify-between mb-5">
-                      <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
+                      <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-linear-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
                         <Icon className="w-7 h-7 stroke-2" />
                       </div>
                       <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
@@ -382,7 +382,7 @@ export default function PartnerPage() {
               <span className="text-xs font-bold text-[#0055ff] tracking-widest uppercase">
                 02 / PROPOSED BENEFITS
               </span>
-              <span className="w-8 h-[2px] bg-[#0055ff]" />
+              <span className="w-8 h-0.5 bg-[#0055ff]" />
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0a1128] tracking-tight font-tech">
               Package comparison
@@ -397,19 +397,19 @@ export default function PartnerPage() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="bg-[#09152e] text-white">
-                  <th className="py-4 px-6 text-xs font-bold tracking-wider uppercase min-w-[280px]">
+                  <th className="py-4 px-6 text-xs font-bold tracking-wider uppercase min-w-70">
                     Proposed benefit
                   </th>
-                  <th className="py-4 px-4 text-center text-xs font-bold tracking-wider uppercase min-w-[120px]">
+                  <th className="py-4 px-4 text-center text-xs font-bold tracking-wider uppercase min-w-30">
                     Platinum
                   </th>
-                  <th className="py-4 px-4 text-center text-xs font-bold tracking-wider uppercase min-w-[120px]">
+                  <th className="py-4 px-4 text-center text-xs font-bold tracking-wider uppercase min-w-30">
                     Gold
                   </th>
-                  <th className="py-4 px-4 text-center text-xs font-bold tracking-wider uppercase min-w-[120px]">
+                  <th className="py-4 px-4 text-center text-xs font-bold tracking-wider uppercase min-w-30">
                     Silver
                   </th>
-                  <th className="py-4 px-4 text-center text-xs font-bold tracking-wider uppercase min-w-[120px]">
+                  <th className="py-4 px-4 text-center text-xs font-bold tracking-wider uppercase min-w-30">
                     Supporting
                   </th>
                 </tr>
@@ -449,7 +449,7 @@ export default function PartnerPage() {
           {/* 03 Special Opportunities */}
           <div className="space-y-8">
             <div className="flex items-center gap-4">
-              <span className="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
+              <span className="w-12 h-12 rounded-xl bg-linear-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
                 03
               </span>
               <div>
@@ -475,11 +475,11 @@ export default function PartnerPage() {
                     className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                   >
                     {/* Top hover highlight matching homepage */}
-                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute top-0 inset-x-0 h-1 bg-linear-to-r from-sky-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     <div>
                       <div className="flex items-center justify-between mb-5">
-                        <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
+                        <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-linear-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
                           <Icon className="w-7 h-7 stroke-2" />
                         </div>
                         <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
@@ -515,7 +515,7 @@ export default function PartnerPage() {
           {/* 04 Why Sponsor */}
           <div className="space-y-8">
             <div className="flex items-center gap-4">
-              <span className="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
+              <span className="w-12 h-12 rounded-xl bg-linear-to-r from-sky-500 to-blue-600 text-white font-extrabold text-lg flex items-center justify-center font-tech shadow-md shadow-sky-500/20">
                 04
               </span>
               <div>
@@ -541,11 +541,11 @@ export default function PartnerPage() {
                     className="bg-white rounded-2xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-sky-400 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                   >
                     {/* Top hover highlight matching homepage */}
-                    <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-sky-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute top-0 inset-x-0 h-1 bg-linear-to-r from-sky-500 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                     <div>
                       <div className="flex items-center justify-between mb-5">
-                        <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-gradient-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
+                        <div className="w-14 h-14 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-linear-to-br group-hover:from-sky-500 group-hover:to-blue-600 group-hover:text-white transition-all duration-300 group-hover:shadow-lg group-hover:shadow-sky-500/30">
                           <Icon className="w-7 h-7 stroke-2" />
                         </div>
                         <span className="text-[11px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200">
@@ -593,7 +593,7 @@ export default function PartnerPage() {
                   <span className="text-xs font-bold text-[#0055ff] tracking-widest uppercase">
                     05 / START A CONVERSATION
                   </span>
-                  <span className="w-8 h-[2px] bg-[#0055ff]" />
+                  <span className="w-8 h-0.5 bg-[#0055ff]" />
                 </div>
                 <h2 className="text-4xl sm:text-5xl font-extrabold text-[#0a1128] tracking-tight font-tech">
                   Sponsor inquiry
@@ -682,7 +682,7 @@ export default function PartnerPage() {
                             {...register("companyName")}
                             type="text"
                             placeholder="Organization name"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                           {errors.companyName && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -699,7 +699,7 @@ export default function PartnerPage() {
                             {...register("industry")}
                             type="text"
                             placeholder="Your industry"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                           {errors.industry && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -718,7 +718,7 @@ export default function PartnerPage() {
                             {...register("city")}
                             type="text"
                             placeholder="City"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                           {errors.city && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -735,7 +735,7 @@ export default function PartnerPage() {
                             {...register("address")}
                             type="text"
                             placeholder="Optional"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                         </div>
                       </div>
@@ -749,7 +749,7 @@ export default function PartnerPage() {
                             {...register("companyPhone")}
                             type="text"
                             placeholder="Optional"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                         </div>
 
@@ -761,7 +761,7 @@ export default function PartnerPage() {
                             {...register("website")}
                             type="text"
                             placeholder="https://"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                         </div>
                       </div>
@@ -782,7 +782,7 @@ export default function PartnerPage() {
                             {...register("contactPerson")}
                             type="text"
                             placeholder="Contact person"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                           {errors.contactPerson && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -799,7 +799,7 @@ export default function PartnerPage() {
                             {...register("designation")}
                             type="text"
                             placeholder="Optional"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                         </div>
                       </div>
@@ -813,7 +813,7 @@ export default function PartnerPage() {
                             {...register("phone")}
                             type="text"
                             placeholder="Contact mobile"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                           {errors.phone && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -830,7 +830,7 @@ export default function PartnerPage() {
                             {...register("email")}
                             type="email"
                             placeholder="name@company.com"
-                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                            className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                           />
                           {errors.email && (
                             <span className="text-red-500 text-xs mt-1 block">
@@ -853,7 +853,7 @@ export default function PartnerPage() {
                         </label>
                         <select
                           {...register("selectedPackage")}
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all"
                         >
                           <option value="">Choose your interest</option>
                           <option value="Platinum Sponsor">Platinum Sponsor</option>
@@ -879,7 +879,7 @@ export default function PartnerPage() {
                           {...register("goals")}
                           rows={4}
                           placeholder="Share your goals or questions."
-                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0055ff] focus:border-transparent transition-all resize-none"
+                          className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#0055ff] focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
                         />
                       </div>
                     </div>
