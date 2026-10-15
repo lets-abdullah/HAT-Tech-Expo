@@ -30,6 +30,7 @@ export default function HeroVideo() {
     <section className="relative w-full h-[calc(100vh-5rem)] min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-slate-950 text-white">
       {/* Background Video Element - Vibrant & High Opacity */}
       <div className="absolute inset-0 w-full h-full z-0 overflow-hidden">
+        {/* Responsive Single Video Tag with Media Queries */}
         <video
           ref={videoRef}
           autoPlay
@@ -39,9 +40,29 @@ export default function HeroVideo() {
           poster="/images/hero-poster.jpg"
           className="w-full h-full object-cover object-center filter brightness-100 contrast-105"
         >
-          <source src="/video/gemini_generated_video_f2323285.mp4" type="video/mp4" />
-          <source src="/video/hero-expo-loop.mp4" type="video/mp4" />
-          <source src="/video/hero-expo-loop.webm" type="video/webm" />
+          {/* Mobile Video (< 768px) */}
+          <source
+            media="(max-width: 767px)"
+            src="/video/gemini_generated_video_168175a2.mp4"
+            type="video/mp4"
+          />
+
+          {/* Desktop / Laptop Video (>= 768px) */}
+          <source
+            media="(min-width: 768px)"
+            src="/video/gemini_generated_video_f2323285.mp4"
+            type="video/mp4"
+          />
+          <source
+            media="(min-width: 768px)"
+            src="/video/hero-expo-loop.mp4"
+            type="video/mp4"
+          />
+          <source
+            media="(min-width: 768px)"
+            src="/video/hero-expo-loop.webm"
+            type="video/webm"
+          />
           Your browser does not support the video tag.
         </video>
 
