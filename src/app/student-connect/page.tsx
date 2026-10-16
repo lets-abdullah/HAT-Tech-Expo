@@ -94,19 +94,20 @@ export default function StudentConnectPage() {
       <Navbar />
 
       {/* Hero Banner */}
-      <section className="relative w-full py-20 border-b border-sky-950/60 overflow-hidden">
+      <section className="relative w-full py-20 sm:py-24 lg:py-28 min-h-95 lg:min-h-115 flex items-center border-b border-sky-950/60 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/student-connect-hero.jpg"
             alt="Student Innovation and Technology"
             fill
-            className="object-cover opacity-120 filter brightness-90"
+            priority
+            className="object-cover object-center lg:object-contain lg:object-right opacity-85 lg:opacity-100 filter brightness-95 lg:brightness-105"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/90 to-slate-950/60" />
+          <div className="absolute inset-0 bg-linear-to-r from-slate-950 via-slate-950/70 to-slate-950/20 lg:from-slate-950 lg:from-35% lg:via-slate-950/60 lg:via-55% lg:to-transparent pointer-events-none" />
         </div>
 
-        <div className="relative z-10 max-w-300 mx-auto px-6 sm:px-8 lg:px-10 flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="max-w-3xl space-y-4">
+        <div className="relative z-10 max-w-300 mx-auto px-6 sm:px-8 lg:px-10 w-full text-left">
+          <div className="max-w-2xl space-y-4">
             <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-900/40 border border-sky-500/30 text-sky-300 text-xs font-bold tracking-widest uppercase">
               <Sparkles className="w-3.5 h-3.5" />
               <span>NEXT GENERATION INNOVATION</span>
