@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const validatedData = partnerInquirySchema.parse(body);
 
-    let savedRecordId: string = "mock-partner-" + Date.now();
+    const savedRecordId = "mock-partner-" + Date.now();
 
     // 1. Save to Supabase if configured
     if (isSupabaseConfigured) {
@@ -29,14 +29,10 @@ export async function POST(request: Request) {
 
         if (error) {
           console.warn("Supabase insert warning:", error.message);
-        } else {
-          console.log("Supabase insert SUCCESS for partner:", validatedData.companyName);
         }
       } catch (dbErr) {
         console.warn("Supabase connection error:", dbErr);
       }
-    } else {
-      console.log("[DEV MODE] Partner Inquiry received:", validatedData);
     }
 
     // 2. Send email via Resend if configured

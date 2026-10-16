@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Globe, Mail, Phone, MapPin, Heart } from "lucide-react";
+import { Globe, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (

@@ -2,7 +2,7 @@
 
 import React, { useRef, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function HeroVideo() {
@@ -18,13 +18,6 @@ export default function HeroVideo() {
       });
     }
   }, []);
-
-  const scrollToExplore = () => {
-    const el = document.getElementById("dates-venue-section");
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
     <section className="relative w-full h-[calc(100vh-5rem)] min-h-[calc(100vh-5rem)] flex items-center justify-center overflow-hidden bg-slate-950 text-white">
@@ -43,25 +36,15 @@ export default function HeroVideo() {
           {/* Mobile Video (< 768px) */}
           <source
             media="(max-width: 767px)"
-            src="/video/gemini_generated_video_168175a2.mp4"
+            src="/video/Mobile.mp4"
             type="video/mp4"
           />
 
           {/* Desktop / Laptop Video (>= 768px) */}
           <source
             media="(min-width: 768px)"
-            src="/video/gemini_generated_video_f2323285.mp4"
+            src="/video/Desktop.mp4"
             type="video/mp4"
-          />
-          <source
-            media="(min-width: 768px)"
-            src="/video/hero-expo-loop.mp4"
-            type="video/mp4"
-          />
-          <source
-            media="(min-width: 768px)"
-            src="/video/hero-expo-loop.webm"
-            type="video/webm"
           />
           Your browser does not support the video tag.
         </video>
@@ -73,15 +56,6 @@ export default function HeroVideo() {
       {/* Main Hero Content - Anchored to Lower Left */}
       <div className="relative z-10 max-w-300 mx-auto px-6 sm:px-8 lg:px-10 w-full pb-10 sm:pb-16 pt-28 sm:pt-44 flex flex-col justify-end items-start text-left h-full min-h-[calc(100vh-5rem)]">
 
-        {/* Shortened Narrative Description */}
-        {/* <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xs sm:text-base md:text-lg text-slate-100 max-w-xl sm:max-w-2xl font-normal leading-relaxed drop-shadow-md mb-6 sm:mb-8"
-        >
-          A premier business-focused event bringing together executives, companies, universities, and students in the Multan region to connect and create opportunities.
-        </motion.p> */}
 
         {/* Action Buttons on Lower Left */}
         <motion.div
@@ -121,24 +95,7 @@ export default function HeroVideo() {
             </span>
           </Link>
 
-          {/* Third Button - Explore the Expo */}
-          {/* <button
-            onClick={scrollToExplore}
-            className="relative inline-flex items-center justify-center p-[1px] bg-slate-700/60 hover:bg-sky-400/80 transition-all duration-200 group cursor-pointer hover:-translate-y-0.5 active:translate-y-0"
-            style={{
-              clipPath: "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px))",
-            }}
-          >
-            <span
-              className="inline-flex items-center justify-center gap-2 px-5 py-[13px] bg-slate-900/90 group-hover:bg-slate-900 text-slate-200 group-hover:text-white font-semibold text-xs sm:text-sm tracking-wide transition-colors"
-              style={{
-                clipPath: "polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px))",
-              }}
-            >
-              <span>Explore the Expo</span>
-              <ArrowRight className="w-3.5 h-3.5 shrink-0 rotate-90 text-sky-400 transition-transform group-hover:translate-y-0.5" />
-            </span>
-          </button> */}
+
         </motion.div>
       </div>
     </section>

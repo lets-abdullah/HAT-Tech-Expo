@@ -18,10 +18,8 @@ import {
   Users,
   Presentation,
   CheckCircle2,
-  ArrowRight,
   Send,
   Loader2,
-  Upload,
 } from "lucide-react";
 import confetti from "canvas-confetti";
 

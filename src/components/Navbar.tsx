@@ -4,13 +4,9 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ArrowRight, Mail, Phone } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 
-interface NavbarProps {
-  onOpenContact?: () => void;
-}
-
-export default function Navbar({ onOpenContact }: NavbarProps) {
+export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 

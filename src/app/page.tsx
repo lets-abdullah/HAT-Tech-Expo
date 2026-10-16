@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "@/components/Navbar";
 import HeroVideo from "@/components/HeroVideo";
 import DatesVenueTimer from "@/components/DatesVenueTimer";
@@ -11,6 +11,7 @@ import TechThemes from "@/components/TechThemes";
 import WhoWillBeInRoom from "@/components/WhoWillBeInRoom";
 import BottomCTA from "@/components/BottomCTA";
 import Footer from "@/components/Footer";
+
 export default function HomePage() {
   return (
     <main className="min-h-screen flex flex-col bg-white">

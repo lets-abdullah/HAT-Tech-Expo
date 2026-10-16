@@ -8,7 +8,6 @@ import {
   ShieldCheck,
   ShoppingBag,
   Cpu,
-  ArrowRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 

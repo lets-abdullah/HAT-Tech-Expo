@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Sparkles, Quote, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function WhyThisExpo() {

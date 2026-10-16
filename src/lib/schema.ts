@@ -33,12 +33,4 @@ export const partnerInquirySchema = z.object({
 
 export type PartnerInquiryFormData = z.infer<typeof partnerInquirySchema>;
 
-export const contactInquirySchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  email: z.string().email("Please enter a valid email address"),
-  phone: z.string().optional(),
-  subject: z.string().min(3, "Subject is required"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
-});
 
-export type ContactInquiryFormData = z.infer<typeof contactInquirySchema>;
