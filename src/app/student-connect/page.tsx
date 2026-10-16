@@ -333,17 +333,14 @@ export default function StudentConnectPage() {
               {/* Lab Photo */}
               <div className="relative rounded-2xl overflow-hidden aspect-4/3 w-full border border-sky-500/30">
                 <Image
-                  src="/images/student-team.jpg"
-                  alt="Student Team Hackathon"
+                  src="/images/student-project-showcase.jpg"
+                  alt="Student Innovation and Robotics Project Showcase"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-transparent to-transparent" />
                 <div className="absolute bottom-3 left-3 right-3 text-xs text-white bg-slate-950/80 backdrop-blur-md p-2.5 rounded-xl border border-sky-500/20 flex items-center justify-between">
                   <span className="font-semibold">Live Project Showcase</span>
-                  <span className="text-sky-400 font-mono text-[10px]">
-                    HAT Expo &apos;26
-                  </span>
                 </div>
               </div>
             </div>
